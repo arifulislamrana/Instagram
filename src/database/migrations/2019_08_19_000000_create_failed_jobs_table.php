@@ -15,12 +15,18 @@ class CreateFailedJobsTable extends Migration
     {
         Schema::create('failed_jobs', function (Blueprint $table) {
             $table->id();
-            $table->string('uuid')->unique();
-            $table->text('connection');
-            $table->text('queue');
-            $table->longText('payload');
-            $table->longText('exception');
-            $table->timestamp('failed_at')->useCurrent();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->timestamp('date_of_birth')->nullable();
+            $table->text('bio')->nullable();
+            $table->string('username')->Unique();
+            $table->string('phone_number')->unique();
+            $table->string('gender');
+            $table->tinyInteger('account_type');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 
